@@ -40,6 +40,8 @@ public class AiSchedule {
     private String cookie;
     @Value("${chatbot-api.group01.openAiKey}")
     private String openAiKey;
+    @Value("${chatbot-api.group01.cronExpression}")
+    private String cronExpression;
 
     @Resource
     private IZsxqApi zsxqApi;
@@ -50,6 +52,7 @@ public class AiSchedule {
      * 单个task 进行coding ，
      */
     //@Scheduled(cron = "0/30 * * * * ?")
+    @Scheduled(cron=cronExpression)
     private void run(){
         if (new Random().nextBoolean()) {
             logger.info("随机打烊中。。。。");

@@ -1,4 +1,5 @@
 package com.deng.bot.api.test;
+
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -10,9 +11,6 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.ssl.TrustStrategy;
 import org.apache.http.util.EntityUtils;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.net.ssl.SSLContext;
 import java.io.IOException;
@@ -23,18 +21,29 @@ import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
 import java.util.Base64;
 
-import java.io.IOException;
-
 /**
  * @Author: deng
  * @Date: 2023/2/17
  * @Description:
  */
 public class ApiTest {
+
     @Test
     public void base64() {
         String cronExpression = new String(Base64.getDecoder().decode("MC81MCAqICogKiAqID8="), StandardCharsets.UTF_8);
         System.out.println(cronExpression);
+    }
+    @Test
+    public void base64Endode() {
+        //编码
+        String message = "* 0/10 * * * ? ";
+        String encode = Base64.getEncoder().encodeToString(message.getBytes(StandardCharsets.UTF_8));  // 方式一
+        String encode2 = new String(Base64.getEncoder().encode(message.getBytes()), StandardCharsets.UTF_8);  // 方式二
+        System.out.println(encode);  // KiAwLzEwICogKiAqID8g
+        System.out.println(encode2);  // KiAwLzEwICogKiAqID8g
+        //解码
+        String decode = new String(Base64.getDecoder().decode(encode), StandardCharsets.UTF_8);
+        System.out.println(decode);  // * 0/10 * * * ?
     }
 
     @Test
@@ -93,7 +102,7 @@ public class ApiTest {
 
         CloseableHttpClient httpClient = HttpClientBuilder.create().setSSLContext(sslContext).build();
 
-        String apiKey="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";
+        String apiKey="sk-xxx";
         HttpPost post = new HttpPost("https://api.openai.com/v1/completions");
         post.addHeader("Content-Type", "application/json");
         post.addHeader("Authorization", "Bearer "+apiKey);

@@ -3,13 +3,13 @@ server:
 
 
 chatbot-api:
-   launchList: group01,group02 # 启动几组，就配置几组
+   launchList: group01 # 启动几组，就配置几组
    group01:
       groupName: ChatGPT AI 问答助手1
       groupId: xy # 知识星球ID
       cookie: cookiesxxx # 知识星球个人cookie信息
-      openAiKey: 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  # 自行申请 https://beta.openai.com/overview
-      cronExpression: MCAwLzEgKiAqICogPw==        # 执行的频次配置，参考：cron.qqe2.com ,目前使用了base64加密
+      openAiKey: sk-xx  # 自行申请 https://beta.openai.com/overview
+      cronExpression: * 0/10 * * * ?        # 执行的频次配置，参考：cron.qqe2.com ,目前使用了base64加密
       silenced: false #是否所有人可见
    group02:
       groupName: ChatGPT AI 问答助手
