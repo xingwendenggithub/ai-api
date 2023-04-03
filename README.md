@@ -65,5 +65,9 @@ python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000,
 结果；tf.Tensor(228.22836, shape=(), dtype=float32)
 ```
 # #  2.3 说明
-如果在使用过程中遇到问题，也可以加我的个人微信进行咨询：WD-832372
+如果在使用过程中遇到问题，也可以加我的个人微信进行咨询：WD-831372
+
+ <img width="282" alt="image" src="https://user-images.githubusercontent.com/19941718/229450528-7ca895ec-9604-41b0-ba6d-2c73c4907206.png">
+
+
 
